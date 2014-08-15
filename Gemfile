@@ -41,8 +41,15 @@ gem 'spring',        group: :development
 
 gem 'carrierwave', '~> 0.10.0'
 
-gem 'pry-rails'
-gem 'pry-debugger'
+group :development do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+
+  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1'
+end
 
 gem "private_pub"
 gem "thin"
