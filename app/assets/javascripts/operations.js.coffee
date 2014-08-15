@@ -15,6 +15,8 @@ $ ->
 
   if $('#video_container').length
     PrivatePub.subscribe "/operations", (data, channel) ->
+      console.log "监听到操作请求：#{data.operation}"
+
       operationFunc = Operations[data.operation]
       if operationFunc && (typeof operationFunc == 'function')
         operationFunc()
