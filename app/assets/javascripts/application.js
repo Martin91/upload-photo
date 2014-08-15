@@ -15,5 +15,6 @@
 //= require bootstrap
 //= require adapter
 //= require qrcode
+//= require private_pub
 //= require turbolinks
 //= require_tree .

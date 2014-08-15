@@ -43,3 +43,6 @@ gem 'carrierwave', '~> 0.10.0'
 
 gem 'pry-rails'
 gem 'pry-debugger'
+
+gem "private_pub"
+gem "thin"
