@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require adapter
+//= require qrcode
 //= require turbolinks
 //= require_tree .

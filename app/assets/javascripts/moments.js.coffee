@@ -8,6 +8,8 @@ $ ->
   $video = $videoContainer.find('#video')
   $canvas = $('#canvas')
   $modal = $('#upload_photo_modal')
+  $qrcode = $('#qrcode')
+  $upload = $('#upload')
 
   retrieveWindowSize = ->
     windowHeight = $(window).height()
@@ -57,8 +59,13 @@ $ ->
   $modal.on 'hidden.bs.modal', ->
     $(video)[0].play()
     $('.buttons-group .btn').toggle()
+    $('#qrcode').empty()
+    $upload.show()
 
   handleSuccessUpload = (data) ->
+    uploadedPhotoFullUrl = location.host + data.photoUrl
+    new QRCode($qrcode[0], uploadedPhotoFullUrl)
+    $upload.hide()
 
   $('#upload').click ->
     photoUrl = $('#preview').attr('src')

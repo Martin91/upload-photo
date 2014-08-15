@@ -6,7 +6,13 @@ class MomentsController < ApplicationController
   end
 
   def create
-    moment = Moment.create photo: preprocess_uploaded_photo
+    moment = Moment.new photo: preprocess_uploaded_photo
+
+    if moment.save
+      render json: { 'photoUrl' => moment.photo.url }
+    else
+      render json: { 'error' => 'something wrong' }, status: 406
+    end
   end
 
   def download
