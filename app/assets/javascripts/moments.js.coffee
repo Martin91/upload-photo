@@ -31,7 +31,14 @@ $ ->
     constraints = { video: true }
     getUserMedia(constraints, gotStream, missedStream)
 
-  $(window).on('resize', adjustVideoContainerSize)
-
   adjustVideoContainerSize()
   initCamera()
+
+  $(window).on('resize', adjustVideoContainerSize)
+
+  $('#take_photo').click ->
+    $(video)[0].pause()
+    $('.buttons-group .btn').toggle()
+  $('#cancel_photo').click ->
+    $(video)[0].play()
+    $('.buttons-group .btn').toggle()
