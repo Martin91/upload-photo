@@ -6,6 +6,7 @@ $ ->
   windowWidth = 0
   $videoContainer = $('#video_container')
   $video = $videoContainer.find('#video')
+  $canvas = $('#canvas')
 
   retrieveWindowSize = ->
     windowHeight = $(window).height()
@@ -31,6 +32,16 @@ $ ->
     constraints = { video: true }
     getUserMedia(constraints, gotStream, missedStream)
 
+  takePicture = ->
+    videoWidth = $video.width()
+    videoHeight = $video.height()
+    $canvas.attr
+      width: windowWidth
+      height: windowHeight
+    $canvas[0].getContext('2d').drawImage($video[0], 0, 0, videoWidth, videoHeight)
+    data = $canvas[0].toDataURL('image/png')
+    console.log data
+
   adjustVideoContainerSize()
   initCamera()
 
@@ -38,7 +49,9 @@ $ ->
 
   $('#take_photo').click ->
     $(video)[0].pause()
+    takePicture()
     $('.buttons-group .btn').toggle()
+
   $('#cancel_photo').click ->
     $(video)[0].play()
     $('.buttons-group .btn').toggle()
