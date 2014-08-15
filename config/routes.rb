@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   root 'moments#new'
 
-  resources :moments, only: [:new, :create, :index] do
-    get 'download', on: :member
-  end
+  resources :moments, only: [:new, :create, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
