@@ -18,7 +18,7 @@
     .buttons-group {
       position: absolute;
       bottom: 10px;
-      left: 50%;
+      left: 49%;
 
       .btn {
         font-size: 20px;
@@ -36,7 +36,10 @@
 }
 
 #upload_photo_modal {
-  img {
-    max-width: 100%;
+  .modal-body {
+    text-align: center;
+    img {
+      max-width: 50%;
+    }
   }
 }

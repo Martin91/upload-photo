@@ -34,11 +34,11 @@ $ ->
     getUserMedia(constraints, gotStream, missedStream)
 
   takePicture = ->
-    videoWidth = $video.width()
-    videoHeight = $video.height()
+    videoWidth = $video.innerWidth()
+    videoHeight = $video.innerHeight()
     $canvas.attr
-      width: windowWidth
-      height: windowHeight
+      width: videoWidth
+      height: videoHeight
     $canvas[0].getContext('2d').drawImage($video[0], 0, 0, videoWidth, videoHeight)
     data = $canvas[0].toDataURL('image/png')
     $modal.find('#preview').attr('src', data)
@@ -54,6 +54,14 @@ $ ->
     takePicture()
     $('.buttons-group .btn').toggle()
 
-  $('.cancel-photo').click ->
+  $modal.on 'hidden.bs.modal', ->
     $(video)[0].play()
     $('.buttons-group .btn').toggle()
+
+  handleSuccessUpload = (data) ->
+
+  $('#upload').click ->
+    photoUrl = $('#preview').attr('src')
+    console.log "图片来自：#{photoUrl}"
+    $.post "/moments", {'moment[photo]': photoUrl}, handleSuccessUpload
+

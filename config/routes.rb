@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'moments#new'
 
-  resources :moments do
+  resources :moments, only: [:new, :create, :index] do
     get 'download', on: :member
   end
 
