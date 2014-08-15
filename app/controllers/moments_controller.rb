@@ -15,6 +15,12 @@ class MomentsController < ApplicationController
     end
   end
 
+  def remote
+  end
+
+  def operation
+  end
+
   private
   def preprocess_uploaded_photo
     encoded_photo_data = params[:moment][:photo]

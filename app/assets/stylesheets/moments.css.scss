@@ -50,3 +50,23 @@
     margin-top: 30px;
   }
 }
+
+
+#remote {
+  .buttons {
+    margin-top: 40px;
+    text-align: center;
+
+    ul {
+      list-style-type: none;
+      li {
+        margin-bottom: 40px;
+        .btn {
+          font-size: 40px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}

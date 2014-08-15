@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'moments#new'
 
-  resources :moments, only: [:new, :create, :index]
+  resources :moments, only: [:new, :create] do
+    collection do
+      get :remote
+      get :operation
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
