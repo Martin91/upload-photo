@@ -7,6 +7,7 @@ $ ->
   $videoContainer = $('#video_container')
   $video = $videoContainer.find('#video')
   $canvas = $('#canvas')
+  $modal = $('#upload_photo_modal')
 
   retrieveWindowSize = ->
     windowHeight = $(window).height()
@@ -40,7 +41,8 @@ $ ->
       height: windowHeight
     $canvas[0].getContext('2d').drawImage($video[0], 0, 0, videoWidth, videoHeight)
     data = $canvas[0].toDataURL('image/png')
-    console.log data
+    $modal.find('#preview').attr('src', data)
+    $modal.modal('show')
 
   adjustVideoContainerSize()
   initCamera()
@@ -52,6 +54,6 @@ $ ->
     takePicture()
     $('.buttons-group .btn').toggle()
 
-  $('#cancel_photo').click ->
+  $('.cancel-photo').click ->
     $(video)[0].play()
     $('.buttons-group .btn').toggle()

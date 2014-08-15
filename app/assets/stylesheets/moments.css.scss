@@ -34,3 +34,9 @@
 #canvas {
   display: none;
 }
+
+#upload_photo_modal {
+  img {
+    max-width: 100%;
+  }
+}
