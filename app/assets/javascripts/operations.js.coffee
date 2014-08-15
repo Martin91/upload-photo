@@ -13,7 +13,8 @@ $ ->
       run_click('#upload')
   }
 
-  PrivatePub.subscribe "/operations", (data, channel) ->
-    operationFunc = Operations[data.operation]
-    if operationFunc && (typeof operationFunc == 'function')
-      operationFunc()
+  if $('#video_container').length
+    PrivatePub.subscribe "/operations", (data, channel) ->
+      operationFunc = Operations[data.operation]
+      if operationFunc && (typeof operationFunc == 'function')
+        operationFunc()

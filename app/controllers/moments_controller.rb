@@ -19,6 +19,10 @@ class MomentsController < ApplicationController
   end
 
   def operation
+    operation = params[:operation]
+    PrivatePub.publish_to '/operations', operation: operation
+
+    render nothing: true
   end
 
   private

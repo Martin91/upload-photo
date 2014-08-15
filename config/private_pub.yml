@@ -1,11 +1,9 @@
 development:
-  server: "http://martin-blog.com:9292/faye"
-  secret_token: "31ef6282adb679c934c56b1471200a4b17687a658c401066929c86e9e3bbf5a7"
-  signature_expiration: 3600 # one hour
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
 test:
-  server: "http://martin-blog.com:9292/faye"
-  secret_token: "31ef6282adb679c934c56b1471200a4b17687a658c401066929c86e9e3bbf5a7"
-  signature_expiration: 3600 # one hour
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
 production:
   server: "http://martin-blog.com:9292/faye"
   secret_token: "31ef6282adb679c934c56b1471200a4b17687a658c401066929c86e9e3bbf5a7"
