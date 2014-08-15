@@ -1,3 +1,22 @@
 // Place all the styles related to the moments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#content {
+  #video_container {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background-color: black;
+    video {
+      height: 100%;
+    }
+
+    #take_photo {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      font-size: 20px;
+      margin-left: -20px;
+    }
+  }
+}
